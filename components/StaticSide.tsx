@@ -4,33 +4,43 @@ import { TEAM_MEMBERS, PROCESS_STEPS, HISTORY_MILESTONES } from '../types';
 export const StaticSide: React.FC = () => {
   return (
     <div className="bg-white">
-      <section className="py-12 px-8 bg-black text-white">
-        <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold mb-4 uppercase tracking-tight">ELEGANCIA</h1>
-          <p className="text-lg text-gray-300 tracking-wide">CADA PASO CUENTA UNA HISTORIA</p>
+      <section className="min-h-screen flex items-center justify-center px-8 bg-gradient-to-br from-stone-900 via-stone-800 to-stone-700">
+        <div className="text-center max-w-3xl">
+          <h1 className="text-7xl md:text-8xl font-serif text-gold-200 mb-6">
+            Elegancia
+          </h1>
+          <p className="text-2xl text-stone-300 font-light tracking-wide">
+            Cada paso cuenta una historia
+          </p>
         </div>
       </section>
 
-      <section className="py-12 px-8">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-4 uppercase">NUESTRA FILOSOFÍA</h2>
-          <p className="text-base text-gray-700 text-center max-w-2xl mx-auto">
+      <section className="py-24 px-8 bg-stone-50">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-5xl font-serif mb-6 text-stone-900">Nuestra Filosofía</h2>
+          <p className="text-lg text-stone-600 leading-8">
             No fabricamos zapatos. Creamos obras de arte que desafían el tiempo. Cada par es testimonio de un siglo de dedicación artesanal.
           </p>
         </div>
       </section>
 
-      <section className="py-12 px-8 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-10 uppercase">EL EQUIPO</h2>
-          <div className="grid md:grid-cols-2 gap-8">
+      <section className="py-24 px-8 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-5xl font-serif text-center mb-16 text-stone-900">
+            El Equipo
+          </h2>
+          <div className="grid md:grid-cols-2 gap-10">
             {TEAM_MEMBERS.map((member) => (
-              <div key={member.id} className="bg-white border border-gray-200">
-                <img src={member.image} alt={member.name} className="w-full h-64 object-cover" />
-                <div className="p-5">
-                  <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                  <p className="text-xs uppercase tracking-wider text-gray-500 mb-3">{member.role}</p>
-                  <p className="text-sm text-gray-600">{member.bio}</p>
+              <div key={member.id}>
+                <div className="bg-stone-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 group">
+                  <div className="relative overflow-hidden h-80">
+                    <img src={member.image} alt={member.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  </div>
+                  <div className="p-8">
+                    <h3 className="text-2xl font-serif text-stone-900 mb-1">{member.name}</h3>
+                    <p className="text-xs uppercase tracking-widest text-gold-600 mb-4">{member.role}</p>
+                    <p className="text-stone-600 leading-7">{member.bio}</p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -38,18 +48,23 @@ export const StaticSide: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-12 px-8">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-10 uppercase">EL PROCESO</h2>
-          <div className="space-y-8">
-            {PROCESS_STEPS.map((step) => (
-              <div key={step.id} className="flex flex-col md:flex-row gap-6 items-start border-b border-gray-200 pb-8">
-                <div className="w-full md:w-1/3">
-                  <img src={step.image} alt={step.title} className="w-full h-48 object-cover" />
+      <section className="py-24 px-8 bg-stone-900 text-white">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-5xl font-serif text-center mb-16 text-gold-200">
+            El Proceso
+          </h2>
+          <div className="space-y-20">
+            {PROCESS_STEPS.map((step, idx) => (
+              <div
+                key={step.id}
+                className={`flex flex-col ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-12 items-center`}
+              >
+                <div className="flex-1">
+                  <img src={step.image} alt={step.title} className="w-full h-80 object-cover rounded-lg shadow-2xl" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold mb-2 uppercase">{step.title}</h3>
-                  <p className="text-sm text-gray-600">{step.description}</p>
+                  <h3 className="text-4xl font-serif text-gold-200 mb-4">{step.title}</h3>
+                  <p className="text-stone-300 leading-8 text-lg">{step.description}</p>
                 </div>
               </div>
             ))}
@@ -57,29 +72,32 @@ export const StaticSide: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-12 px-8 bg-gray-50">
+      <section className="py-24 px-8 bg-white">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-10 uppercase">NUESTRA HISTORIA</h2>
-          <div className="space-y-6">
+          <h2 className="text-5xl font-serif text-center mb-16 text-stone-900">
+            Nuestra Historia
+          </h2>
+          <div className="relative pl-8 border-l-2 border-gold-400">
             {HISTORY_MILESTONES.map((milestone) => (
-              <div key={milestone.year} className="border-l-4 border-black pl-6">
-                <div className="text-xs uppercase tracking-wider text-gray-500 mb-1">{milestone.year}</div>
-                <h3 className="text-xl font-bold mb-1">{milestone.title}</h3>
-                <p className="text-sm text-gray-600">{milestone.description}</p>
+              <div key={milestone.year} className="mb-12">
+                <div className="absolute -left-4 w-6 h-6 bg-gold-600 rounded-full border-4 border-white"></div>
+                <div className="text-xs uppercase tracking-widest text-gold-600 font-semibold mb-2">{milestone.year}</div>
+                <h3 className="text-2xl font-serif text-stone-900 mb-3">{milestone.title}</h3>
+                <p className="text-stone-600 leading-7">{milestone.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-12 px-8 bg-black text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4 uppercase">LA INFORMACIÓN AL INSTANTE</h2>
-          <p className="text-base text-gray-300 mb-8">
-            Sin animaciones ni distracciones. Toda la información disponible inmediatamente para tomar decisiones rápidas.
+      <section className="py-24 px-8 bg-stone-900">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-4xl font-serif text-gold-200 mb-6">Información Directa</h2>
+          <p className="text-lg text-stone-300 mb-12 leading-8">
+            Sin animaciones. Toda la información disponible al instante para explorar a tu propio ritmo.
           </p>
-          <button className="px-10 py-3 bg-white text-black font-bold uppercase text-sm hover:bg-gray-200 transition-colors">
-            EXPLORAR COLECCIÓN
+          <button className="px-12 py-4 bg-gold-600 hover:bg-gold-500 text-white font-serif tracking-widest text-sm uppercase rounded-sm transition-all duration-300 shadow-lg shadow-gold-900/50 hover:shadow-2xl hover:scale-105">
+            Explorar Colección
           </button>
         </div>
       </section>
