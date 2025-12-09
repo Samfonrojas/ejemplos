@@ -130,6 +130,36 @@ export const DynamicSide: React.FC<DynamicSideProps> = ({ startAnimations }) => 
         </div>
       </section>
 
+      <section className="py-24 px-8 bg-white" data-id="showcase">
+        <div className="max-w-5xl mx-auto">
+          <div className={`grid md:grid-cols-2 gap-16 items-center transition-all duration-700 ${startAnimations && visible['showcase'] ? 'opacity-100' : 'opacity-0'}`}>
+            <div className={`transition-all duration-700 ${startAnimations && visible['showcase'] ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'}`}>
+              <h2 className="text-5xl font-serif text-stone-900 mb-6">Elegancia en Cada Detalle</h2>
+              <p className="text-lg text-stone-600 leading-8 mb-8">
+                Cada puntada, cada curva, cada matiz del cuero cuenta una historia de perfección artesanal. Nuestros zapatos no son simplemente accesorios, son declaraciones de carácter y refinamiento.
+              </p>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <span className="text-gold-600 text-2xl mt-1">•</span>
+                  <span className="text-stone-600">Cuero premium seleccionado manualmente</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-gold-600 text-2xl mt-1">•</span>
+                  <span className="text-stone-600">Construcción Goodyear Welt artesanal</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-gold-600 text-2xl mt-1">•</span>
+                  <span className="text-stone-600">Hormas diseñadas para máxima comodidad</span>
+                </li>
+              </ul>
+            </div>
+            <div className={`relative transition-all duration-700 ${startAnimations && visible['showcase'] ? 'translate-x-0 opacity-100' : 'translate-x-20 opacity-0'}`}>
+              <img src="/2020-08-07-12-14-05.jpg" alt="Elegancia en cada detalle" className="w-full rounded-lg shadow-2xl" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-24 px-8 bg-stone-900">
         <div className={`max-w-3xl mx-auto text-center transition-all duration-700 ${startAnimations && visible['cta'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} data-id="cta">
           <h2 className="text-4xl font-serif text-gold-200 mb-6">Narrativa Visual Elegante</h2>
